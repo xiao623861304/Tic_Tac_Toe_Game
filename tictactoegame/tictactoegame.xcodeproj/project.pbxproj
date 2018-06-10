@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58D8FFA947C73341587E571A /* Pods_tictactoegame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE44CF288FFD82B89D768C1 /* Pods_tictactoegame.framework */; };
 		752E595420CC8C9A00CBC03A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E595320CC8C9A00CBC03A /* AppDelegate.swift */; };
 		752E595920CC8C9A00CBC03A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 752E595720CC8C9A00CBC03A /* Main.storyboard */; };
 		752E595B20CC8C9B00CBC03A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 752E595A20CC8C9B00CBC03A /* Assets.xcassets */; };
@@ -23,7 +24,6 @@
 		7531394120CC8DC200A042A4 /* CrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531393C20CC8DC200A042A4 /* CrossView.swift */; };
 		7531394420CC8DE400A042A4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531394320CC8DE400A042A4 /* Model.swift */; };
 		7531394620CC8DF300A042A4 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531394520CC8DF300A042A4 /* Header.swift */; };
-		937387C25B6D9CF0C722D9ED /* Pods_tictactoegame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FB152936AF2F1A36CDBBEB /* Pods_tictactoegame.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		47FB152936AF2F1A36CDBBEB /* Pods_tictactoegame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tictactoegame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25BD3F3A9A2FC7D77288D803 /* Pods-tictactoegame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tictactoegame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tictactoegame/Pods-tictactoegame.debug.xcconfig"; sourceTree = "<group>"; };
+		2D9238DBE52A321C763DF49D /* Pods-tictactoegame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tictactoegame.release.xcconfig"; path = "Pods/Target Support Files/Pods-tictactoegame/Pods-tictactoegame.release.xcconfig"; sourceTree = "<group>"; };
+		6AE44CF288FFD82B89D768C1 /* Pods_tictactoegame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tictactoegame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		752E595020CC8C9A00CBC03A /* tictactoegame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tictactoegame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		752E595320CC8C9A00CBC03A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		752E595820CC8C9A00CBC03A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,8 +69,6 @@
 		7531393C20CC8DC200A042A4 /* CrossView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossView.swift; sourceTree = "<group>"; };
 		7531394320CC8DE400A042A4 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7531394520CC8DF300A042A4 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		B61CF8EBCF2B80BC97FB2474 /* Pods-tictactoegame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tictactoegame.release.xcconfig"; path = "Pods/Target Support Files/Pods-tictactoegame/Pods-tictactoegame.release.xcconfig"; sourceTree = "<group>"; };
-		D71FA508B7B6F284C7E2E097 /* Pods-tictactoegame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tictactoegame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tictactoegame/Pods-tictactoegame.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				937387C25B6D9CF0C722D9ED /* Pods_tictactoegame.framework in Frameworks */,
+				58D8FFA947C73341587E571A /* Pods_tictactoegame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,8 +104,8 @@
 				752E596720CC8C9B00CBC03A /* tictactoegameTests */,
 				752E597220CC8C9C00CBC03A /* tictactoegameUITests */,
 				752E595120CC8C9A00CBC03A /* Products */,
-				8CCA96FB217677BB07BEC40B /* Pods */,
-				84C13669553369F4D1C4D934 /* Frameworks */,
+				8EC1F63140E59E03EE103F18 /* Pods */,
+				DBCFACFF9A1F032DA9058E92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,21 +183,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		84C13669553369F4D1C4D934 /* Frameworks */ = {
+		8EC1F63140E59E03EE103F18 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				47FB152936AF2F1A36CDBBEB /* Pods_tictactoegame.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8CCA96FB217677BB07BEC40B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D71FA508B7B6F284C7E2E097 /* Pods-tictactoegame.debug.xcconfig */,
-				B61CF8EBCF2B80BC97FB2474 /* Pods-tictactoegame.release.xcconfig */,
+				25BD3F3A9A2FC7D77288D803 /* Pods-tictactoegame.debug.xcconfig */,
+				2D9238DBE52A321C763DF49D /* Pods-tictactoegame.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DBCFACFF9A1F032DA9058E92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AE44CF288FFD82B89D768C1 /* Pods_tictactoegame.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,11 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 752E597820CC8C9C00CBC03A /* Build configuration list for PBXNativeTarget "tictactoegame" */;
 			buildPhases = (
-				A7FAC21EEBE0BAE094447A5A /* [CP] Check Pods Manifest.lock */,
+				81967645738106CAF9987D0C /* [CP] Check Pods Manifest.lock */,
 				752E594C20CC8C9A00CBC03A /* Sources */,
 				752E594D20CC8C9A00CBC03A /* Frameworks */,
 				752E594E20CC8C9A00CBC03A /* Resources */,
-				FFD7A0775435AFB7B00E4F06 /* [CP] Embed Pods Frameworks */,
+				693CC5B579C7EB0AD1453123 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,25 +329,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A7FAC21EEBE0BAE094447A5A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tictactoegame-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FFD7A0775435AFB7B00E4F06 /* [CP] Embed Pods Frameworks */ = {
+		693CC5B579C7EB0AD1453123 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -363,6 +345,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tictactoegame/Pods-tictactoegame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81967645738106CAF9987D0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tictactoegame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -553,7 +553,7 @@
 		};
 		752E597920CC8C9C00CBC03A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D71FA508B7B6F284C7E2E097 /* Pods-tictactoegame.debug.xcconfig */;
+			baseConfigurationReference = 25BD3F3A9A2FC7D77288D803 /* Pods-tictactoegame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -571,7 +571,7 @@
 		};
 		752E597A20CC8C9C00CBC03A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B61CF8EBCF2B80BC97FB2474 /* Pods-tictactoegame.release.xcconfig */;
+			baseConfigurationReference = 2D9238DBE52A321C763DF49D /* Pods-tictactoegame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

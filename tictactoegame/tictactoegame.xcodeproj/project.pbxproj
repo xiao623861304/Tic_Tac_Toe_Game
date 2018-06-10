@@ -47,7 +47,7 @@
 		25BD3F3A9A2FC7D77288D803 /* Pods-tictactoegame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tictactoegame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tictactoegame/Pods-tictactoegame.debug.xcconfig"; sourceTree = "<group>"; };
 		2D9238DBE52A321C763DF49D /* Pods-tictactoegame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tictactoegame.release.xcconfig"; path = "Pods/Target Support Files/Pods-tictactoegame/Pods-tictactoegame.release.xcconfig"; sourceTree = "<group>"; };
 		6AE44CF288FFD82B89D768C1 /* Pods_tictactoegame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tictactoegame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		752E595020CC8C9A00CBC03A /* tictactoegame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tictactoegame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		752E595020CC8C9A00CBC03A /* Tic Tac Toe Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic Tac Toe Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		752E595320CC8C9A00CBC03A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		752E595820CC8C9A00CBC03A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		752E595A20CC8C9B00CBC03A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		752E595120CC8C9A00CBC03A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				752E595020CC8C9A00CBC03A /* tictactoegame.app */,
+				752E595020CC8C9A00CBC03A /* Tic Tac Toe Game.app */,
 				752E596420CC8C9B00CBC03A /* tictactoegameTests.xctest */,
 				752E596F20CC8C9C00CBC03A /* tictactoegameUITests.xctest */,
 			);
@@ -219,7 +219,7 @@
 			);
 			name = tictactoegame;
 			productName = tictactoegame;
-			productReference = 752E595020CC8C9A00CBC03A /* tictactoegame.app */;
+			productReference = 752E595020CC8C9A00CBC03A /* Tic Tac Toe Game.app */;
 			productType = "com.apple.product-type.application";
 		};
 		752E596320CC8C9B00CBC03A /* tictactoegameTests */ = {
@@ -563,7 +563,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.YanFeng.tictactoegame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tic Tac Toe Game";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -581,7 +581,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.YanFeng.tictactoegame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tic Tac Toe Game";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

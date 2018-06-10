@@ -10,12 +10,13 @@ import UIKit
 
 class SinglePlayerController: UIViewController,chooseLevelDelegate {
     var gameViewframe:CGRect!
-    var logicModel:Model!
+    var model:Model!
     var gameOver:Bool!
     var isImpossibleWin:Bool!
     var chooseLevelView:ChooseLevelView!
     var isShowLevelView:Bool!
     let cornerArr:[Int]! = [0,2,6,8]
+    let edgeArr:[Int]! = [1,3,5,7]
     override func viewDidLoad() {
         super.viewDidLoad()
          self.title = "singlePlayer Type"
@@ -45,10 +46,17 @@ class SinglePlayerController: UIViewController,chooseLevelDelegate {
         chooseLevelView = ChooseLevelView(frame: CGRect(x: 15, y: HeightNavBar+50, width: SCREEN_WIDTH-30, height: 0),arr: ["EASY","IMPOSSIBLEWIN"])
         chooseLevelView.delegate = self
         view.addSubview(chooseLevelView)
+        view.addSubview(reStartBtn)
+        reStartBtn.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-40)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(SCREEN_WIDTH-30)
+            make.height.equalTo(40)
+        }
     }
     func initializeModel(){
-        logicModel = Model()
-        logicModel.initializeDic(count: 9)
+        model = Model()
+        model.initializeDic(count: 9)
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         var location:CGPoint!
@@ -73,36 +81,36 @@ class SinglePlayerController: UIViewController,chooseLevelDelegate {
         let x:Int = Int((location.x-10)/((SCREEN_WIDTH-20)/3))
         let y:Int = Int((location.y-(SCREEN_HEIGHT/2-(SCREEN_WIDTH-20)/2))/((SCREEN_WIDTH-20)/3))
         let isInnerPointOfGameView :Bool! = (location.x>=gameViewframe.minX && location.x<=gameViewframe.maxX && location.y >= gameViewframe.minY && location.y <= gameViewframe.maxY) ? true : false
-        return (x+3*y >= 0 && x+3*y <= 8 ) && isInnerPointOfGameView && !logicModel.positionHasViewDic[x+3*y]! ? (x+3*y) : -1
+        return (x+3*y >= 0 && x+3*y <= 8 ) && isInnerPointOfGameView && !model.positionHasViewDic[x+3*y]! ? (x+3*y) : -1
     }
     func addPersonEvent(position:Int){
         addCrossView(position: position)
-        logicModel.crossArray.append(position)
-        logicModel.positionHasViewDic[position] = true
-        logicModel.allPiecesDic[position] = "cross"
-        gameOver=logicModel.gameStatus(n: 3)
+        model.crossArray.append(position)
+        model.positionHasViewDic[position] = true
+        model.allPiecesDic[position] = "cross"
+        gameOver=model.gameStatus(n: 3)
         if gameOver {
-            showWinerView(whoWin: logicModel.whoWins)
+            showWinerView(whoWin: model.whoWins)
         }
     }
     func addRobotEvent(){
         var randomPos = Int()
         while true {
             randomPos = Int(arc4random()%9)
-            if !logicModel.positionHasViewDic[randomPos]!{
+            if !model.positionHasViewDic[randomPos]!{
                addRobotCircleView(position: randomPos)
                 break
             }
         }
-        gameOver=logicModel.gameStatus(n: 3)
+        gameOver=model.gameStatus(n: 3)
         if gameOver {
-            showWinerView(whoWin: logicModel.whoWins)
+            showWinerView(whoWin: model.whoWins)
         }
     }
     func addHardRobotEvent(){
-        let croArr:[Int] = logicModel.crossArray
+        let croArr:[Int] = model.crossArray
         let endpos:Int = croArr.last!
-        let cirArr:[Int] = logicModel.circleArray
+        let cirArr:[Int] = model.circleArray
         if croArr.count==1 && endpos == 4{
             addRobotCircleView(position: 0)
         }else if croArr.count == 1 && endpos != 4 {
@@ -110,15 +118,15 @@ class SinglePlayerController: UIViewController,chooseLevelDelegate {
         }else{
             var nextPosition : Int = -1
             for i in cirArr {
-                let robwinarr:[[Int]] = logicModel.possibilityWinArray(position: i)
+                let robwinarr:[[Int]] = model.possibilityWinArray(position: i)
                 for rarr in robwinarr {
                     for j in 0..<rarr.count {
-                        if cirArr.contains(rarr[j]) && (!logicModel.positionHasViewDic[rarr[rarr.count-1-j]]!){
+                        if cirArr.contains(rarr[j]) && (!model.positionHasViewDic[rarr[rarr.count-1-j]]!){
                             nextPosition = rarr[rarr.count-1-j]
                             addRobotCircleView(position: nextPosition)
-                            gameOver=logicModel.gameStatus(n: 3)
+                            gameOver=model.gameStatus(n: 3)
                             if gameOver {
-                                showWinerView(whoWin: logicModel.whoWins)
+                                showWinerView(whoWin: model.whoWins)
                             }
                             return
                         }
@@ -126,7 +134,7 @@ class SinglePlayerController: UIViewController,chooseLevelDelegate {
                 }
             }
             for k in croArr {
-                let poswinarr:[[Int]] = logicModel.possibilityWinArray(position: k)
+                let poswinarr:[[Int]] = model.possibilityWinArray(position: k)
                 for  parr in poswinarr {
                     for m in 0..<parr.count{
                         if croArr.contains(parr[m]) && (!cirArr.contains(parr[parr.count-1-m])){
@@ -135,35 +143,71 @@ class SinglePlayerController: UIViewController,chooseLevelDelegate {
                     }
                 }
             }
-            print(nextPosition)
+//            print(nextPosition)
             if nextPosition == -1 {
-                if croArr.first != 0 && croArr.count==2 && (!cornerArr.contains(croArr.first!)){
-                    addRobotCircleView(position: croArr.first!-1)
-                }else if croArr.first == 0 && croArr.count == 2 {
-                    if (croArr.last!-1) != 4{
-                        addRobotCircleView(position: croArr.last!-1)
+                if croArr.count == 2{
+                  if cornerArr.contains(croArr.first!) && cornerArr.contains(croArr.last!){
+                        let randomPos = Int(arc4random()%UInt32(cornerArr.count))
+                        while true {
+                            if !model.positionHasViewDic[edgeArr[randomPos]]!{
+                                addRobotCircleView(position: edgeArr[randomPos])
+                                break
+                            }
+                        }
                     }else{
-                        addRobotCircleView(position: 2)
+                        nextPosition = hasPossibleWin(firstArr: model.possibilityWinArray(position: croArr.first!), secondArr: model.possibilityWinArray(position: croArr.last!))
+                        addRobotCircleView(position: nextPosition)
                     }
-                }else if croArr.first != 0 && croArr.count == 2 && cornerArr.contains(croArr.first!){
-                    
-                }else{
+                }
+                else{
                     addRobotEvent()
                 }
             }else{
                 addRobotCircleView(position: nextPosition)
             }
         }
-        gameOver=logicModel.gameStatus(n:3)
+        gameOver=model.gameStatus(n:3)
         if gameOver {
-            showWinerView(whoWin: logicModel.whoWins)
+            showWinerView(whoWin: model.whoWins)
         }
+    }
+    func hasPossibleWin(firstArr:[[Int]] , secondArr:[[Int]])->Int{
+        var set1:Set<Int> = includeSamePoint(array: firstArr)
+        let set2:Set<Int> = includeSamePoint(array: secondArr)
+        set1 = set1.intersection(set2)
+        var nextpositon:Int = -1
+//        print(set1)
+        for index in set1 {
+            if !model.positionHasViewDic[index]! && (!edgeArr.contains(index)){
+                nextpositon = index
+                break
+            }
+        }
+        if nextpositon == -1 {
+            let randomPos = Int(arc4random()%UInt32(cornerArr.count))
+            while true {
+                if !model.positionHasViewDic[cornerArr[randomPos]]!{
+                    nextpositon = cornerArr[randomPos]
+                    break
+                }
+            }
+        }
+        return nextpositon
+    }
+    func includeSamePoint(array:[[Int]]) -> Set<Int> {
+        var set : Set<Int> = []
+        for arr in array{
+            for element in arr {
+                set.insert(element)
+            }
+        }
+        return set
     }
     func addRobotCircleView(position:Int){
         addCircleView(position: position)
-        logicModel.circleArray.append(position)
-        logicModel.positionHasViewDic[position] = true
-        logicModel.allPiecesDic[position] = "circle"
+        model.circleArray.append(position)
+        model.positionHasViewDic[position] = true
+        model.allPiecesDic[position] = "circle"
     }
     func showWinerView(whoWin:String){
         var showWinMessage = String()
@@ -208,7 +252,7 @@ class SinglePlayerController: UIViewController,chooseLevelDelegate {
     }
     @objc func toPopView() {
         var beginned:Bool! = false
-        for values in logicModel.positionHasViewDic.values {
+        for values in model.positionHasViewDic.values {
             if values {
                 beginned = values
                 break
@@ -229,6 +273,10 @@ class SinglePlayerController: UIViewController,chooseLevelDelegate {
             self.chooseLevelView.frame = CGRect(x: 15, y: HeightNavBar+50, width: SCREEN_WIDTH-30, height: 80)
         }
         isShowLevelView = true
+        reStartBtn.isEnabled = false
+    }
+    @objc func toReStartBtn(){
+        resetGame()
     }
     lazy var showLevelBtn:UIButton={
         let showLevelBtn  = UIButton()
@@ -239,6 +287,16 @@ class SinglePlayerController: UIViewController,chooseLevelDelegate {
         showLevelBtn.layer.cornerRadius = 20
         showLevelBtn.addTarget(self, action: #selector(toPopView), for: .touchUpInside)
         return showLevelBtn
+    }()
+    lazy var reStartBtn:UIButton = {
+        let reStartBtn = UIButton()
+        reStartBtn.setTitle("RESTART", for: .normal)
+        reStartBtn.setTitleColor(.black, for: .normal)
+        reStartBtn.layer.cornerRadius = 20
+        reStartBtn.layer.borderColor = UIColor.black.cgColor
+        reStartBtn.layer.borderWidth = 2
+        reStartBtn.addTarget(self, action: #selector(toReStartBtn), for: .touchUpInside)
+        return reStartBtn
     }()
     func chooseLevel(hardLevel: HardLevel) {
         if hardLevel == HardLevel.easy {
@@ -258,6 +316,7 @@ class SinglePlayerController: UIViewController,chooseLevelDelegate {
         }
         isShowLevelView = false
         resetGame()
+        reStartBtn.isEnabled = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

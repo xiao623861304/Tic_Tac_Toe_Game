@@ -49,6 +49,13 @@ class MultiPlayerController: UIViewController,chooseCheckerboardDelegate {
         titleLabel.text = "CHOOSE Checkerboard TYPE"
         titleLabel.layer.backgroundColor = UIColor.white.cgColor
         view.addSubview(titleLabel)
+        view.addSubview(reStartBtn)
+        reStartBtn.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-40)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(SCREEN_WIDTH-30)
+            make.height.equalTo(40)
+        }
     }
     func initializeModel(){
         model = Model()
@@ -142,7 +149,19 @@ class MultiPlayerController: UIViewController,chooseCheckerboardDelegate {
         setUpGameView()
         resetGame()
     }
-    
+    lazy var reStartBtn:UIButton = {
+        let reStartBtn = UIButton()
+        reStartBtn.setTitle("RESTART", for: .normal)
+        reStartBtn.setTitleColor(.black, for: .normal)
+        reStartBtn.layer.cornerRadius = 20
+        reStartBtn.layer.borderColor = UIColor.black.cgColor
+        reStartBtn.layer.borderWidth = 2
+        reStartBtn.addTarget(self, action: #selector(toReStartBtn), for: .touchUpInside)
+        return reStartBtn
+    }()
+    @objc func toReStartBtn(){
+        resetGame()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

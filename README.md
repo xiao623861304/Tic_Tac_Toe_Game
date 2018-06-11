@@ -1,6 +1,7 @@
 # Tic_Tac_Toe_Game
 
-
+![image text](https://github.com/xiao623861304/Tic_Tac_Toe_Game/blob/master/iphone%208%20plus.gif)
+![image text](https://github.com/xiao623861304/Tic_Tac_Toe_Game/blob/master/iphone%20X.gif)
 For this app , The functions completed are as follows : 
 
 Basic function : 

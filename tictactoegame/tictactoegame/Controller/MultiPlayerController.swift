@@ -9,6 +9,8 @@
 import UIKit
 
 class MultiPlayerController: UIViewController,chooseCheckerboardDelegate {
+    let str = "Turn to : "
+    var player = "X"
     var gameViewframe:CGRect!
     var model:Model!
     var gameOver:Bool!
@@ -50,11 +52,17 @@ class MultiPlayerController: UIViewController,chooseCheckerboardDelegate {
         titleLabel.layer.backgroundColor = UIColor.white.cgColor
         view.addSubview(titleLabel)
         view.addSubview(reStartBtn)
+        view.addSubview(showNextPlayer)
         reStartBtn.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-40)
             make.centerX.equalToSuperview()
             make.width.equalTo(SCREEN_WIDTH-30)
             make.height.equalTo(40)
+        }
+        showNextPlayer.snp.makeConstraints { (make) in
+            make.bottom.equalTo(reStartBtn.snp.top).offset(-15)
+            make.centerX.equalToSuperview()
+            make.height.width.equalTo(reStartBtn)
         }
     }
     func initializeModel(){
@@ -85,11 +93,15 @@ class MultiPlayerController: UIViewController,chooseCheckerboardDelegate {
             model.positionHasViewDic[position] = true
             model.allPiecesDic[position] = "cross"
             isCross = false
+            player = "O"
+            showNextPlayer.attributedText = setMutableString(player: player, color: UIColor.black)
         }else{
             addCircleView(position: position)
             model.positionHasViewDic[position] = true
             model.allPiecesDic[position] = "circle"
             isCross = true
+            player = "X"
+            showNextPlayer.attributedText = setMutableString(player: player, color: UIColor.red)
         }
             gameOver=model.gameStatus(n: chessboardSpecification)
         if gameOver {
@@ -161,6 +173,19 @@ class MultiPlayerController: UIViewController,chooseCheckerboardDelegate {
     }()
     @objc func toReStartBtn(){
         resetGame()
+    }
+    lazy var showNextPlayer:UILabel = {
+        let showNextPlayer = UILabel()
+        showNextPlayer.textAlignment = .center
+        showNextPlayer.textColor = .black
+        showNextPlayer.attributedText = setMutableString(player: player, color: UIColor.red)
+        return showNextPlayer
+    }()
+    func setMutableString(player:String , color : UIColor)->NSMutableAttributedString{
+        let string = NSMutableAttributedString.init(string: str+player)
+        string.addAttribute(NSAttributedStringKey.foregroundColor,value: color , range:NSMakeRange(str.count,player.count))
+        string.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 25), range: NSMakeRange(str.count,player.count))
+        return string
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

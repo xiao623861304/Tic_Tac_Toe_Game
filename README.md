@@ -1,7 +1,6 @@
 # Tic_Tac_Toe_Game
 
-![image text](https://github.com/xiao623861304/Tic_Tac_Toe_Game/blob/master/iphone%208%20plus.gif)<img src="https://github.com/xiao623861304/Tic_Tac_Toe_Game/blob/master/iphone%208%20plus.gif" width="50%" height="50%">
-![image text](https://github.com/xiao623861304/Tic_Tac_Toe_Game/blob/master/iphone%20X.gif)
+<img src="https://github.com/xiao623861304/Tic_Tac_Toe_Game/blob/master/iphone8%20plus.gif" width="50%" height="50%">  <img src="https://github.com/xiao623861304/Tic_Tac_Toe_Game/blob/master/iphoneX.gif" width="50%" height="50%">
 For this app , The functions completed are as follows : 
 
 Basic function : 
